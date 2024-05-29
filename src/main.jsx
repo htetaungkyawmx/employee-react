@@ -4,26 +4,31 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.js'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Root } from './components/Root'
 import { ErrorPage } from './components/ErrorPage'
+import { Root } from './components/Root'
 import { EmployeeList } from './components/EmployeeList'
+import { EmployeeForm } from './components/EmployeeForm'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path:'/',
     element: <Root />,
     errorElement: <ErrorPage />,
-    children: [
+    children:[
       {
-        path: 'employees',
+        path:'employees',
         element: <EmployeeList />
+      },
+      {
+        path:'employee-form',
+        element: <EmployeeForm />
       }
     ]
   }
-]);
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
